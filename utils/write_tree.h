@@ -1,6 +1,6 @@
 #pragma once // to include this header file only once
-#include "utils/hash_object.h"  // relative to main.cpp
-#include "utils/sha1.h"
+#include "hash_object.h"  // relative to main.cpp
+#include "sha1.h"
 #include "utils.h"
 #include <cstring>
 #include <filesystem>

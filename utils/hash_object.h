@@ -1,5 +1,5 @@
 #pragma once  // to include this header file only once
-#include "utils/object.h"  // relative to main.cpp
+#include "object.h"  // relative to main.cpp
 #include "sha1.h"
 #include <cassert>
 #include <cstdlib>
