@@ -1,6 +1,6 @@
 #pragma once  // to include this header file only once
-#include "../utils/object.h"  // relative to main.cpp
-#include "../utils/sha1.h"
+#include "utils/object.h"  // relative to main.cpp
+#include "sha1.h"
 #include <cassert>
 #include <cstdlib>
 #include <fstream>
@@ -33,10 +33,13 @@ namespace hash_object {
 
       size_t compressed_size = compressBound(src.size());
 
-      char dest_buf[compressed_size];
-      compress((Bytef *)dest_buf, (uLongf *)&compressed_size, (const Bytef *)src.c_str(), (uLong)src.size());
-      /*std::cout << dest_buf << " compressed data \n";*/
-      obj_file.write(dest_buf, compressed_size);
+      std::vector<char> dest_buf(compressed_size);
+      compress(reinterpret_cast<Bytef*>(dest_buf.data()),
+               reinterpret_cast<uLongf*>(&compressed_size),
+               reinterpret_cast<const Bytef*>(src.data()),
+               static_cast<uLong>(src.size()));
+      obj_file.write(dest_buf.data(), compressed_size);
+
       obj_file.close();
     }
 

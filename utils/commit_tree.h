@@ -1,7 +1,7 @@
 #pragma once  // to include this header file only once
-#include "../utils/hash_object.h"  // relative to main.cpp
-#include "../utils/object.h"
-#include "../utils/write_tree.h"
+#include "hash_object.h"
+#include "object.h"
+#include "write_tree.h"
 #include <ctime>
 #include <cstring>
 #include <sstream>
@@ -15,7 +15,7 @@ namespace commit_tree {
     std::tm *local_time = std::localtime(&now);
     char buffer[8];
     std::strftime(buffer, sizeof(buffer), "%z", local_time);
-    body << "tree " << tree_sha << "\nparent " << parent_sha << "\nauthor StochasticBatman <sonkun9000@yahoo.com> " << now << " " << buffer << "\n\n" << message << "\n";
+    body << "tree " << tree_sha << "\nparent " << parent_sha << "\nauthor StochasticBatman" << now << " " << buffer << "\n\n" << message << "\n";
     object::Object commit { object::Kind::COMMIT, body.str().size(), body.str() };
     return hash_object::invoke(commit, true);
   }

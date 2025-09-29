@@ -1,6 +1,6 @@
 #pragma once  // to include this header file only once
-#include "../utils/object.h"  // relative to main.cpp
-#include "../utils/utils.h"
+#include "utils/object.h"  // relative to main.cpp
+#include "utils.h"
 #include <algorithm>
 #include <cstdlib>
 #include <fstream>

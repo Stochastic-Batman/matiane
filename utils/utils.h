@@ -1,6 +1,6 @@
 #ifndef UTILS_H
 #define UTILS_H
-#include "../utils/object.h"  // relative to main.cpp
+#include "object.h"  // relative to main.cpp
 #include <charconv>
 #include <filesystem>
 #include <fstream>

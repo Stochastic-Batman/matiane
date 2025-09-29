@@ -1,7 +1,7 @@
 #pragma once // to include this header file only once
-#include "../utils/hash_object.h"  // relative to main.cpp
-#include "../utils/sha1.h"
-#include "../utils/utils.h"
+#include "utils/hash_object.h"  // relative to main.cpp
+#include "utils/sha1.h"
+#include "utils.h"
 #include <cstring>
 #include <filesystem>
 #include <iostream>
@@ -25,11 +25,11 @@ namespace write_tree {
       } else {
         char mode[7];
         if (dir_entry.is_regular_file()) {
-          strcpy(mode, "100644");
+          std::strcpy(mode, "100644");
         } else if (dir_entry.is_symlink()) {
-          strcpy(mode, "120000");
+          std::strcpy(mode, "120000");
         } else {
-          strcpy(mode, "000000");
+          std::strcpy(mode, "000000");
         }
 
         const std::string hash = hash_object::invoke(dir_entry.path(), true);

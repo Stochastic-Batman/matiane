@@ -1,8 +1,8 @@
-#include "../utils/cat_file.h"
-#include "../utils/hash_object.h"
-#include "../utils/list_tree.h"
-#include "../utils/write_tree.h"
-#include "../utils/commit_tree.h"
+#include "utils/cat_file.h"
+#include "utils/hash_object.h"
+#include "utils/list_tree.h"
+#include "utils/write_tree.h"
+#include "utils/commit_tree.h"
 #include <cassert>
 #include <cstdlib>
 #include <cstring>
