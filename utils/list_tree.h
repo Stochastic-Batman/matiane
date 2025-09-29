@@ -21,9 +21,7 @@ inline void invoke(std::string_view hash, bool name_only = false) {
 
   while (bytes_left > 0) {
     if (*ptr == ' ') {
-      // just consumed mode
       if (!name_only) {
-        /*std::cout << "\nmode is " << builder.str() << '\n';*/
         if (builder.str().size() < 6) {
           for (size_t i = 0; i < 6 - builder.str().size(); ++i) {
             std::cout << "0";
@@ -40,15 +38,11 @@ inline void invoke(std::string_view hash, bool name_only = false) {
       const std::string name = builder.str();
       builder.clear();
       builder.str("");
-      // consume the SHA
       ++ptr;
-      /*std::cout << "\nbuilding SHA: ";*/
       for (size_t i = 0; i < 20; ++i) {
         builder << *ptr;
-        /*std::cout << *ptr;*/
         ++ptr;
       }
-      /*std::cout << "SHA end\nSHA is " << builder.str() << "\n";*/
       if (!name_only) {
         std::cout << builder.str() << std::string(24 - builder.str().size(), ' ') << name << "\n";
       } else {

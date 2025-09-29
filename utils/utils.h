@@ -56,7 +56,6 @@ namespace utils {
       throw std::runtime_error("malformed object file");
     }
 
-    // get kind
     const std::string kind_str = blob.substr(0, space_pos);
 
     object::Kind kind;
@@ -69,7 +68,6 @@ namespace utils {
       throw std::runtime_error("malformed object file");
     }
 
-    // get size
     size_t size;
     size_t header_size = header_end + 1;
     auto [p, errc] = std::from_chars(blob.data() + space_pos + 1, blob.data() + header_end, size);
@@ -84,7 +82,6 @@ namespace utils {
       throw std::runtime_error("malformed object file");
     }
 
-    // get content
     std::string content{blob.substr(header_end + 1, size)};
 
     return object::Object{kind, size, content};
